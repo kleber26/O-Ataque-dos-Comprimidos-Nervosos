@@ -76,7 +76,7 @@ public class vThirdPersonCamera : MonoBehaviour
         AimingCamera(animator.GetBool("isAiming"));
         
         Vector3 forward = transform.TransformDirection(Vector3.forward) * 30;
-        Debug.DrawRay(transform.position, forward, Color.green);
+        Debug.DrawRay(Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 3.0f)), forward, Color.green);
     }
     
     public void Init()
@@ -129,7 +129,7 @@ public class vThirdPersonCamera : MonoBehaviour
 //        
         
         if (aim && Time.time >= nextTimetoFire) {
-            rightOffset = 0.40f;
+            rightOffset = 0.50f;
             defaultDistance = 1.50f;
             height = 1.66f;
             crosshair.active = true;

@@ -491,8 +491,9 @@ MonoBehaviour:
   - {fileID: 2425344675456981122}
   - {fileID: 79832631464479800}
   - {fileID: -4807886902981228251}
-  killCounter: {fileID: 3720125233063502990}
+  health: 100
   healthBar: {fileID: 6999803438213010916}
+  explosionDamage: 20
 --- !u!114 &1593390926
 MonoBehaviour:
   m_ObjectHideFlags: 0

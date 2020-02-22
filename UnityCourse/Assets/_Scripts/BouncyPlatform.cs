@@ -1,32 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Media;
 using UnityEngine;
 
-public class BouncyPlatform : MonoBehaviour
-{
-
-    public float speed = 5f;
+public class BouncyPlatform : MonoBehaviour {
     public Rigidbody rigidPlayer;
-    private Rigidbody rigid;
     public Transform platform;
+    public float speed = 5f;
+    public AudioSource audioSource; 
     
-    void Start ()
-    {
-        rigid = transform.GetComponent<Rigidbody>();
-    }
-    void OnCollisionEnter(Collision collidedWithThis)
-    {
-        if (collidedWithThis.transform.tag == "Player")
-        {
+    void OnCollisionEnter(Collision collidedWithThis) {
+        if (collidedWithThis.gameObject.CompareTag("Player")) {
             rigidPlayer.velocity = transform.up * speed;
             platform.transform.Translate(new Vector3(0f, -1f, 0f));
+            audioSource.Play();
         }
     }
     
-    void OnCollisionExit(Collision collidedWithThis)
-    {
-        if (collidedWithThis.transform.tag == "Player")
-        {
+    void OnCollisionExit(Collision collidedWithThis) {
+        if (collidedWithThis.gameObject.CompareTag("Player")) {
             platform.transform.Translate(new Vector3(0f, 1f, 0f));
         }
     }

@@ -38,8 +38,9 @@ public class PlayerHealth : MonoBehaviour {
     }
     
     public void TakeDamage(float amount) {
+
+        if (!PlayerDamageSound.isPlaying) PlayerDamageSound.Play();
         FlashDamage();
-        PlayerDamageSound.Play();
         health -= amount;
         healthBar.sizeDelta = new Vector2(health, healthBar.sizeDelta.y);
         

@@ -55,8 +55,6 @@
             </e>
           </e>
         </e>
-        <e p="Boss.cs" t="Include" />
-        <e p="Enemy_boss.cs" t="Include" />
         <e p="Idle MoCap" t="Include">
           <e p="DemoScene" t="Include">
             <e p="idle_mocap_follow_player.cs" t="Include" />
@@ -174,6 +172,7 @@
           </e>
         </e>
         <e p="KillCounter.cs" t="Include" />
+        <e p="MoveSounds.cs" t="Include" />
         <e p="TextMesh Pro" t="Include">
           <e p="Examples &amp; Extras" t="Include">
             <e p="Fonts" t="Include">

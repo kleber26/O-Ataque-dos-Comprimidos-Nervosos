@@ -24,6 +24,7 @@
           <e p="ExitStage.cs" t="Include" />
           <e p="GameFlow.cs" t="Include" />
           <e p="Gun.cs" t="Include" />
+          <e p="MainMenu.cs" t="Include" />
           <e p="MouseLook.cs" t="Include" />
           <e p="OpenSmallDoorUp.cs" t="Include" />
           <e p="PlayerHealth.cs" t="Include" />
@@ -54,6 +55,8 @@
             </e>
           </e>
         </e>
+        <e p="Boss.cs" t="Include" />
+        <e p="Enemy_boss.cs" t="Include" />
         <e p="Idle MoCap" t="Include">
           <e p="DemoScene" t="Include">
             <e p="idle_mocap_follow_player.cs" t="Include" />

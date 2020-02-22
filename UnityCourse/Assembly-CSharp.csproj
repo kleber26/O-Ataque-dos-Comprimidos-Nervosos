@@ -2,8 +2,9 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
-    <CscToolPath>/Applications/Unity/Hub/Editor/2019.2.19f1/Unity.app/Contents/Tools/RoslynScripts</CscToolPath>
-    <CscToolExe>unity_csc.sh</CscToolExe>
+    <_TargetFrameworkDirectories>non_empty_path_generated_by_unity.rider.package</_TargetFrameworkDirectories>
+    <_FullFrameworkReferenceAssemblyPaths>non_empty_path_generated_by_unity.rider.package</_FullFrameworkReferenceAssemblyPaths>
+    <DisableHandlePackageFileConflicts>true</DisableHandlePackageFileConflicts>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
   </PropertyGroup>
   <PropertyGroup>
@@ -66,6 +67,7 @@
     <Compile Include="Assets\_Scripts\ExitStage.cs" />
     <Compile Include="Assets\_Scripts\GameFlow.cs" />
     <Compile Include="Assets\_Scripts\Gun.cs" />
+    <Compile Include="Assets\_Scripts\MainMenu.cs" />
     <Compile Include="Assets\_Scripts\MouseLook.cs" />
     <Compile Include="Assets\_Scripts\OpenSmallDoorUp.cs" />
     <Compile Include="Assets\_Scripts\PlayerHealth.cs" />
@@ -73,6 +75,8 @@
     <Compile Include="Assets\_Scripts\Target.cs" />
     <Compile Include="Assets\_Scripts\TimedSpawner.cs" />
     <Compile Include="Assets\AssetStoreOriginals\_SNAPS_PrototypingAssets\About\Scripts\Readme.cs" />
+    <Compile Include="Assets\Boss.cs" />
+    <Compile Include="Assets\Enemy_boss.cs" />
     <Compile Include="Assets\Idle MoCap\DemoScene\idle_mocap_follow_player.cs" />
     <Compile Include="Assets\Invector-3rdPersonController_LITE\3D Models\Others\HealthItem\vAnimateUV.cs" />
     <Compile Include="Assets\Invector-3rdPersonController_LITE\Scripts\Camera\vThirdPersonCamera.cs" />

@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Score
   - Exploded
+  - bosstrig
   layers:
   - Default
   - TransparentFX

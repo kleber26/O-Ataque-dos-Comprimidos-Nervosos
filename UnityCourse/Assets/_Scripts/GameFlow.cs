@@ -17,11 +17,19 @@ public class GameFlow : MonoBehaviour {
         restartScreen.active = true;
         backgroundMusic.GetComponent<AudioLowPassFilter>().enabled = true;
         if (Input.GetKeyDown(KeyCode.Return)) RestartGame();
+        if (Input.GetKeyDown(KeyCode.Q)) GameMenu();
     }
 
     void RestartGame() {
+        Application.LoadLevel(1);
+        restartScreen.active = false;
+        backgroundMusic.GetComponent<AudioLowPassFilter>().enabled = false;
+    }
+    
+    void GameMenu() {
         Application.LoadLevel(0);
         restartScreen.active = false;
         backgroundMusic.GetComponent<AudioLowPassFilter>().enabled = false;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 }

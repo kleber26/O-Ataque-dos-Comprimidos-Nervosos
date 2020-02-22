@@ -10,12 +10,12 @@ public class Enemy : MonoBehaviour {
     private TextMeshProUGUI killCounter;
     private TextMeshProUGUI explosionsCounter;
     
-    private float health = 100f;
+    public float health = 100f;
     public RectTransform healthBar;
     
     private Material[] materials;
     private float timeToChangeColor;
-    private float explosionDamage = 20f;
+    public float explosionDamage = 20f;
    
     private void Start() {
         materials = body.GetComponent<Renderer>().materials;

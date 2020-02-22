@@ -9,11 +9,16 @@ public class PlayerHealth : MonoBehaviour {
     public AudioSource PlayerDeathSound;
     public AudioSource PlayerDamageSound;
     public RectTransform healthBar;
+    public GameObject winScreen;
     
     private float health = 100f;
     private bool flash;
     
     void Update () {
+        if (winScreen.active) {
+            health = 100f;
+        }
+        
         CheckDamage();
     }
 

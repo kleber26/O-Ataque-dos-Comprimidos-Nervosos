@@ -11,6 +11,8 @@ TagManager:
   - Score
   - Exploded
   - bosstrig
+  - boss
+  - winS
   layers:
   - Default
   - TransparentFX

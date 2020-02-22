@@ -293,6 +293,7 @@
             </e>
           </e>
         </e>
+        <e p="WinScreen.cs" t="Include" />
       </e>
       <e p="Library" t="ExcludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />

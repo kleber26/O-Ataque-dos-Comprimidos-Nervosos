@@ -6,12 +6,13 @@ public class TimedSpawner : MonoBehaviour {
 
     public GameObject winScreen;
     
-    public GameObject spawnee;
+    public List<GameObject> spawnee;
     public bool stopSpawning;
     public float spawnTime;
     public float spawnDelay;
     public bool boss;
     private GameObject trig;
+    
     private GameObject bossEnemy;
     private bool readyToShowFinalScreen;
     private GameObject bossTrig;
@@ -32,7 +33,7 @@ public class TimedSpawner : MonoBehaviour {
 
     public void SpawnObject() {
         if (!boss) {
-            if (GameObject.FindGameObjectsWithTag("Enemy").Length < 4) Instantiate(spawnee, transform.position, transform.rotation);
+            if (GameObject.FindGameObjectsWithTag("Enemy").Length < 4) Instantiate(GenerateRandomEnemy(), transform.position, transform.rotation);
             if (stopSpawning) CancelInvoke("SpawnObject");
         } else {
             if (trig != null && !bossAlreeadyActivated) {
@@ -42,8 +43,13 @@ public class TimedSpawner : MonoBehaviour {
         }
     }
 
+    private GameObject GenerateRandomEnemy() {
+        int count = spawnee.Count;
+        return spawnee[Random.Range(0, count)];
+    }
+
     private void SpawnBoss() {
-        Instantiate(spawnee, transform.position, transform.rotation);
+        Instantiate(spawnee[0], transform.position, transform.rotation);
     }
 
     private void CheckBoss() {

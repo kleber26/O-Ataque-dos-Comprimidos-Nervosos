@@ -4,55 +4,91 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
     
-    public GameObject body;
+//  # Color Management
+    public Material DamageMaterial;
+    public Renderer body, body_2;
+    private Material body_2DefaultMaterial;
+    private bool tookDamage;
+    private float timeToChangeColor;
+    private Material bodyDefaultMaterial;
+    
+//  # Audio and Visual Effects    
     public ParticleSystem explosionEffect;
     public List <AudioSource> scream;
-    private TextMeshProUGUI killCounter;
-    private TextMeshProUGUI explosionsCounter;
     
+//  # General
+    public bool boss;
     public float health = 100f;
     public RectTransform healthBar;
-    
-    private Material[] materials;
-    private float timeToChangeColor;
     public float explosionDamage = 20f;
+    
+//  # Kill Counter    
+    private TextMeshProUGUI killCounter;
+    private TextMeshProUGUI explosionsCounter;
    
     private void Start() {
-        materials = body.GetComponent<Renderer>().materials;
-        materials[0].color = Color.white;
+        bodyDefaultMaterial = body.GetComponent<Renderer>().material;
+        body_2DefaultMaterial = body_2.GetComponent<Renderer>().material;
         killCounter = GameObject.FindGameObjectWithTag("Score").GetComponent<TextMeshProUGUI>();
         explosionsCounter = GameObject.FindGameObjectWithTag("Exploded").GetComponent<TextMeshProUGUI>();
+        ChangeEnemyColor();
     }
 
     private void Update() {
         ChangeColorOnDamage();
-        
     }
 
     public void TakeDamage(float amount) {
         health -= amount;
-        DamageSound();
         healthBar.sizeDelta = new Vector2(health, healthBar.sizeDelta.y);
-        materials[0].color = Color.red;
-        timeToChangeColor = Time.time;
-            
+        DamageSound();
+        AddDamageColor();
+        
         if (health <= 0f) {
-            killCounter.text = (int.Parse(killCounter.text) + 1).ToString();
+            IncreaseKillCounter();
             Die();
         }
     }
 
-    void Die() {
+    private void Die() {
         Instantiate(explosionEffect, gameObject.transform.position, transform.rotation);        
         Destroy(gameObject, 0.1f);
     }
 
+    private void IncreaseKillCounter() {
+        killCounter.text = (int.Parse(killCounter.text) + 1).ToString();
+    }
+    
+    private void IncreaseExplosionsCounter() {
+        explosionsCounter.text = (int.Parse(explosionsCounter.text) + 1).ToString();
+    }
+
+    private void AddDamageColor() {
+        body.material = DamageMaterial;
+        body_2.material = DamageMaterial;
+        tookDamage = true;
+        timeToChangeColor = Time.time;
+    }
+
     private void ChangeColorOnDamage() {
-        if (materials[0].color == Color.red && (Time.time - timeToChangeColor) > 0.2f) {
-            materials[0].color = Color.white;
+        if (CheckTimeToChangeDefaultColor()) {
+            ChangeEnemyColor();
         }
     }
     
+    private bool CheckTimeToChangeDefaultColor() {
+        if (tookDamage && (Time.time - timeToChangeColor) > 0.2f) {
+            tookDamage = false;
+            return true;
+        }
+        return false;
+    }
+    
+    private void ChangeEnemyColor() {
+        body.material = bodyDefaultMaterial;
+        body_2.material = body_2DefaultMaterial;
+    }
+
     private void DamageSound() {
         int pos = Random.Range(0, 3);
         scream[pos].gameObject.active = true;
@@ -63,9 +99,9 @@ public class Enemy : MonoBehaviour {
         if (other.gameObject.CompareTag("Player")) {
             PlayerHealth player = other.transform.GetComponent<PlayerHealth>();
             player.TakeDamage(explosionDamage);
-            
-            explosionsCounter.text = (int.Parse(explosionsCounter.text) + 1).ToString();
-            Die();
-        }   
+
+            IncreaseExplosionsCounter();
+            if (!boss) Die();
+        }
     }
 }

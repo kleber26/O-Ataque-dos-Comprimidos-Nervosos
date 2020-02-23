@@ -13,6 +13,12 @@ TagManager:
   - bosstrig
   - boss
   - winS
+  - ???Field
+  - ZoioField
+  - BrazukaField
+  - JorgeField
+  - LevelLoader
+  - EventSystem
   layers:
   - Default
   - TransparentFX

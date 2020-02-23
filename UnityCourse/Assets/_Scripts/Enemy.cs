@@ -51,6 +51,9 @@ public class Enemy : MonoBehaviour {
     }
 
     private void Die() {
+        SpecialGhostsKilled special = gameObject.GetComponent<SpecialGhostsKilled>();
+        if (special != null) special.UpdateSpecialGhostsScore();
+
         Instantiate(explosionEffect, gameObject.transform.position, transform.rotation);        
         Destroy(gameObject, 0.1f);
     }

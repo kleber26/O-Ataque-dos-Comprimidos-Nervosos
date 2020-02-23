@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class OpenSmallDoorUp : MonoBehaviour {
 
     public GameObject door;
-    public float x, y, z = 0f;
+    public float x, y, z;
     public bool openBoss;
     public GameObject bossTrig;
     
@@ -21,5 +19,4 @@ public class OpenSmallDoorUp : MonoBehaviour {
     private void OnTriggerExit(Collider other) {
         door.transform.position += new Vector3(x, y, z) * Time.deltaTime;
     }
-
 }

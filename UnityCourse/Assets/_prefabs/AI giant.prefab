@@ -1050,6 +1050,7 @@ MonoBehaviour:
   - {fileID: 2425344675456981122}
   - {fileID: 79832631464479800}
   - {fileID: -4807886902981228251}
+  name: {fileID: 3916348250988112670}
   boss: 1
   health: 1000
   healthBar: {fileID: 6999803438213010916}
@@ -1997,7 +1998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.24647617, a: 1}
+  m_Color: {r: 1, g: 0.94509804, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

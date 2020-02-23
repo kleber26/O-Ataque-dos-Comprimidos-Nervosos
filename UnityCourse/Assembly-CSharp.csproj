@@ -66,13 +66,18 @@
     <Compile Include="Assets\_Scripts\ExitStage.cs" />
     <Compile Include="Assets\_Scripts\GameFlow.cs" />
     <Compile Include="Assets\_Scripts\Gun.cs" />
+    <Compile Include="Assets\_Scripts\KillCounter.cs" />
     <Compile Include="Assets\_Scripts\MainMenu.cs" />
+    <Compile Include="Assets\_Scripts\MedicKit.cs" />
     <Compile Include="Assets\_Scripts\MouseLook.cs" />
     <Compile Include="Assets\_Scripts\OpenSmallDoorUp.cs" />
+    <Compile Include="Assets\_Scripts\PauseMenu.cs" />
     <Compile Include="Assets\_Scripts\PlayerHealth.cs" />
     <Compile Include="Assets\_Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\_Scripts\SpecialGhostsKilled.cs" />
     <Compile Include="Assets\_Scripts\Target.cs" />
     <Compile Include="Assets\_Scripts\TimedSpawner.cs" />
+    <Compile Include="Assets\_Scripts\WinScreen.cs" />
     <Compile Include="Assets\AssetStoreOriginals\_SNAPS_PrototypingAssets\About\Scripts\Readme.cs" />
     <Compile Include="Assets\Idle MoCap\DemoScene\idle_mocap_follow_player.cs" />
     <Compile Include="Assets\Invector-3rdPersonController_LITE\3D Models\Others\HealthItem\vAnimateUV.cs" />
@@ -98,7 +103,8 @@
     <Compile Include="Assets\JMO Assets\WarFX\Scripts\WFX_BulletHoleDecal.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Scripts\WFX_LightFlicker.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Spawn System\CFX_SpawnSystem.cs" />
-    <Compile Include="Assets\KillCounter.cs" />
+    <Compile Include="Assets\MainMenuInGame.cs" />
+    <Compile Include="Assets\MenuFlow.cs" />
     <Compile Include="Assets\MoveSounds.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
@@ -134,7 +140,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\UMotionExamples\Miscellaneous\Scripts\ResetPosition.cs" />
-    <Compile Include="Assets\WinScreen.cs" />
     <None Include="Assets\JMO Assets\WarFX\Shaders\WFX_S AlphaBlend Scroll.shader" />
     <None Include="Assets\UMotionEditor\Shaders\UnlitDashedLine.shader" />
     <None Include="Assets\UMotionEditor\Shaders\VertexColorUnlit.shader" />

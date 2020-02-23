@@ -1,10 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Billboard : MonoBehaviour{
-    // Update is called once per frame
+public class Billboard : MonoBehaviour {
+
+    public bool inverted;
     void Update() {
-        transform.LookAt(Camera.main.transform);
+        if (inverted) transform.rotation = Quaternion.LookRotation(transform.position - Camera.main.transform.position);
+        else transform.LookAt(Camera.main.transform);
     }
 }

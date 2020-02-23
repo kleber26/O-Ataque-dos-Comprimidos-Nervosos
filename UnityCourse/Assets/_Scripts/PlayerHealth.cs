@@ -6,53 +6,79 @@ using UnityEngine.UIElements;
 public class PlayerHealth : MonoBehaviour {
 
     public CanvasGroup myCG;
+    public CanvasGroup healCanvasGroup;
     public AudioSource PlayerDeathSound;
     public AudioSource PlayerDamageSound;
     public RectTransform healthBar;
     public GameObject winScreen;
+    public AudioSource healSound;
+    public static bool playerDead;
     
     private float health = 100f;
-    private bool flash;
+    private bool flashDamage, flashHeal;
+    private float flashTime = 0.05f;
     
     void Update () {
-        if (winScreen.active) {
-            health = 100f;
-        }
-        
+        if (winScreen.active) health = 100f;
         CheckDamage();
+        CheckHeal();
+    }
+
+    public float CurrentHealth() {
+        return health;
     }
 
     private void CheckDamage() {
-        if (flash) {
-            myCG.alpha = myCG.alpha - (Time.deltaTime + 0.05f);
+        if (flashDamage) {
+            myCG.alpha = myCG.alpha - (Time.deltaTime + flashTime);
             if (myCG.alpha <= 0) {
                 myCG.alpha = 0;
-                flash = false;
+                flashDamage = false;
+            }
+        }
+    }
+
+    public void HealPlayer(float heal) {
+        health = heal;
+        UpdateHealthBar();
+        healSound.Play();
+        healCanvasGroup.alpha = 0.7f;
+        flashHeal = true;
+    }
+
+    private void CheckHeal() {
+        if (flashHeal) {
+            healCanvasGroup.alpha = healCanvasGroup.alpha - (Time.deltaTime + flashTime);
+            if (healCanvasGroup.alpha <= 0) {
+                healCanvasGroup.alpha = 0;
+                flashHeal = false;
             }
         }
     }
 
     public void FlashDamage () {
-        flash = true;
+        flashDamage = true;
         myCG.alpha = 1;
     }
     
     public void TakeDamage(float amount) {
-
         if (!PlayerDamageSound.isPlaying) PlayerDamageSound.Play();
-        FlashDamage();
         health -= amount;
-        healthBar.sizeDelta = new Vector2(health, healthBar.sizeDelta.y);
+        UpdateHealthBar();
         
-        if (health <= 0f) {
-            Die();
-        }
+        if (health <= 0f) Die();
+        else FlashDamage();
     }
 
     void Die() {
         PlayerDeathSound.gameObject.active = true;
         PlayerDeathSound.Play();
-        gameObject.active = false;
+        playerDead = true;
+        gameObject.SetActiveRecursively(false);
+    }
+
+    private void UpdateHealthBar() {
+        healthBar.sizeDelta = new Vector2(health, healthBar.sizeDelta.y);
     }
 
 }

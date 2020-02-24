@@ -36,7 +36,8 @@ public class Gun : MonoBehaviour {
         ShootSound();
         flash.GetComponent<ParticleSystem>().Play();
         RaycastHit hit;
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range)) {
+//        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range)) {
+        if (Physics.Raycast(Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 1.0f)), fpsCam.transform.forward, out hit, range)) {
 
             Debug.Log("Target shot: " + hit.transform.name);
             Target target = hit.transform.GetComponent<Target>();

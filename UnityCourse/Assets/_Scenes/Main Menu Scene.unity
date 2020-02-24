@@ -2460,9 +2460,9 @@ MonoBehaviour:
   m_text: "<align=\"center\"><color=red>Objetivo</color=red></align=\"center\">\n\nEm
     2070, a Terra foi invadida por fantasmas vindo do rec\xC9m descoberto planeta
     Caps, que atacou a humanidade com comprimidos gigantes e nervosos. A humanidade
-    ent\xE3o envia o rob\xD4 Ben20 para derrotar Jonas, l\xCDder dos comprimidos fantasmas.
+    ent\xC3o envia o rob\xD4 Ben20 para derrotar Jonas, l\xCDder dos comprimidos fantasmas.
     A \xDAnica forma de derrot\xC1-lo ser\xC1 destruir os fantasmas especiais que
-    escondem sua presen\xC7a e ativar os paineis que libera <align=\"left\">a passagem
+    escondem sua presen\xC7a e ativar os paineis que liberam <align=\"left\">a passagem
     at\xC9 ele."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -2532,7 +2532,7 @@ MonoBehaviour:
   m_margin: {x: -451.35028, y: -518.5198, z: -950.8606, w: 292.48297}
   m_textInfo:
     textComponent: {fileID: 1839051837}
-    characterCount: 388
+    characterCount: 389
     spriteCount: 0
     spaceCount: 62
     wordCount: 62

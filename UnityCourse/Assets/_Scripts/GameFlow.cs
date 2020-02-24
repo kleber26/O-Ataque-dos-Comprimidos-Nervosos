@@ -6,17 +6,23 @@ public class GameFlow : MonoBehaviour {
     public GameObject winScreen; 
     public GameObject restartScreen;
     public GameObject backgroundMusic;
+    public GameObject levelLoader;
+    public CameraShake cameraShake;
+    public static bool winScreenActivated;
+    
+    private AudioManager audioManager;
     private AudioLowPassFilter lowFilterMusic;
     private MainMenuInGame load;
     private float defaultBackgroundVolue = 0.613f;
     private bool keepFadingIn, keepFadingOut;
     private GameObject[] invisibleWalls;
-    public static bool winScreenActivated;
     
     void Start() {
         winScreenActivated = false;
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
         invisibleWalls = GameObject.FindGameObjectsWithTag("InvisibleWalls");
         StartCoroutine(DisableInvisibleWalls());
+        levelLoader.active = true;
         PlayerHealth.playerDead = false;
         lowFilterMusic = backgroundMusic.GetComponent<AudioLowPassFilter>();
         load = GameObject.FindGameObjectWithTag("LevelLoader").GetComponent<MainMenuInGame>();
@@ -24,18 +30,18 @@ public class GameFlow : MonoBehaviour {
     
     void Update() {
         if (PlayerHealth.playerDead) CallRestartCanvas();
-        else ToggleLowFilterMusicBackground(PauseMenu.gameIsPaused);
-
-        WinScreen();
+//        else ToggleLowFilterMusicBackground(PauseMenu.gameIsPaused);
     }
 
-    public static void ActivateWinScreen() {
+    public static void ToggleWinScreen() {
         winScreenActivated = true;
     }
     
-    private void WinScreen() {
-        if (winScreenActivated) winScreen.active = true;
-        else winScreen.active = false;
+    public void CallWinScreen() {
+        StartCoroutine(KillBossEffect());
+        ToggleWinScreen();
+//        if (winScreenActivated) winScreen.active = true;
+//        else winScreen.active = false;
     }
 
     public void FadeOutBackgroudMusic() {
@@ -74,10 +80,14 @@ public class GameFlow : MonoBehaviour {
         lowFilterMusic.enabled = false;
     }
 
-    void ToggleLowFilterMusicBackground(bool paused) {
-        lowFilterMusic.enabled = paused;
+    public void ToggleLowFilterMusicBackground() {
+        lowFilterMusic.enabled = !lowFilterMusic.enabled;
     }
-    
+
+    public void CameraShake(float duration, float magnitude) {
+        StartCoroutine(cameraShake.Shake(duration, magnitude));
+    }
+
     private IEnumerator SoundFadeIn(AudioSource audio, float speed, float maxVolume) {
         keepFadingIn = true;
         keepFadingOut = false;
@@ -110,5 +120,19 @@ public class GameFlow : MonoBehaviour {
             invisible.active = false;
             yield return null;
         }
+    }
+
+    private IEnumerator KillBossEffect() {
+        CameraShake(0.85f, 0.2f);
+        audioManager.ToggleAudioEchoFilter();
+        audioManager.PlayBossKilledSound();
+        Time.timeScale = 0.25f;
+        lowFilterMusic.enabled = true;
+        yield return new WaitForSeconds(0.85f);
+        audioManager.ToggleAudioEchoFilter();
+        lowFilterMusic.enabled = false;
+        Time.timeScale = 1f;
+        winScreen.active = true;
+        audioManager.PlayExplosionSound(3);
     }
 }

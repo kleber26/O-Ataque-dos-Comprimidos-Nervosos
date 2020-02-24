@@ -60,8 +60,10 @@
     <Compile Include="Assets\_prefabs\SciFiHandGun\Scripts\OrbitAroundTarget.cs" />
     <Compile Include="Assets\_Scripts\AIMovement.cs" />
     <Compile Include="Assets\_Scripts\AimScript.cs" />
+    <Compile Include="Assets\_Scripts\AudioManager.cs" />
     <Compile Include="Assets\_Scripts\Billboard.cs" />
     <Compile Include="Assets\_Scripts\BouncyPlatform.cs" />
+    <Compile Include="Assets\_Scripts\CameraShake.cs" />
     <Compile Include="Assets\_Scripts\Collectable.cs" />
     <Compile Include="Assets\_Scripts\Enemy.cs" />
     <Compile Include="Assets\_Scripts\ExitStage.cs" />

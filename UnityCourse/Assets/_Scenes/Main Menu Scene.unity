@@ -244,6 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b87486e1a7ca847a2b889f53dc79f2f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelLoader: {fileID: 7554510509621341244}
   backgroundMusic: {fileID: 1091253951}
 --- !u!1 &304429118
 GameObject:
@@ -1005,7 +1006,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 7554510509621341243}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 7554510509621341244}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: deed8d2df3acc4045ac774a0077c72ab, type: 3}
@@ -3153,7 +3154,13 @@ PrefabInstance:
     - target: {fileID: 7554510509826920756, guid: 83f9bedf914f34f808042c1cb02af7c3,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83f9bedf914f34f808042c1cb02af7c3, type: 3}
+--- !u!1 &7554510509621341244 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7554510509826920756, guid: 83f9bedf914f34f808042c1cb02af7c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 7554510509621341243}
+  m_PrefabAsset: {fileID: 0}

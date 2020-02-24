@@ -1018,7 +1018,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3
+  m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -1050,7 +1050,6 @@ MonoBehaviour:
   - {fileID: 2425344675456981122}
   - {fileID: 79832631464479800}
   - {fileID: -4807886902981228251}
-  name: {fileID: 3916348250988112670}
   boss: 1
   health: 1000
   healthBar: {fileID: 6999803438213010916}
@@ -2126,6 +2125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 148883168dbc5487cafcbd4d50b93e48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inverted: 0
 --- !u!1 &6832772925378280504
 GameObject:
   m_ObjectHideFlags: 0

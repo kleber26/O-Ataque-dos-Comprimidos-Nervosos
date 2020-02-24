@@ -17,8 +17,10 @@
         <e p="_Scripts" t="Include">
           <e p="AIMovement.cs" t="Include" />
           <e p="AimScript.cs" t="Include" />
+          <e p="AudioManager.cs" t="Include" />
           <e p="Billboard.cs" t="Include" />
           <e p="BouncyPlatform.cs" t="Include" />
+          <e p="CameraShake.cs" t="Include" />
           <e p="Collectable.cs" t="Include" />
           <e p="Enemy.cs" t="Include" />
           <e p="ExitStage.cs" t="Include" />

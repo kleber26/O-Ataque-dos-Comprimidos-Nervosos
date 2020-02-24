@@ -20,6 +20,7 @@ TagManager:
   - LevelLoader
   - EventSystem
   - InvisibleWalls
+  - AudioManager
   layers:
   - Default
   - TransparentFX

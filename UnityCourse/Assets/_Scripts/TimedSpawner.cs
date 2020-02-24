@@ -10,17 +10,17 @@ public class TimedSpawner : MonoBehaviour {
     public bool boss;
     private GameObject trig;
     
-    private GameObject bossEnemy;
-    private bool readyToShowFinalScreen;
+//    private GameObject bossEnemy;
+//    private bool readyToShowFinalScreen;
     private GameObject bossTrig;
     private bool bossAlreeadyActivated;
 
     private void Update() {
         trig = GameObject.FindGameObjectWithTag("bosstrig");
-        bossEnemy = GameObject.FindGameObjectWithTag("boss");
+//        bossEnemy = GameObject.FindGameObjectWithTag("boss");
 
-        if (bossEnemy != null) readyToShowFinalScreen = true;
-        if (readyToShowFinalScreen && boss) CheckBoss();
+//        if (bossEnemy != null) readyToShowFinalScreen = true;
+//        if (readyToShowFinalScreen && boss) CheckBoss();
     }
 
     void Start() {
@@ -48,9 +48,9 @@ public class TimedSpawner : MonoBehaviour {
         Instantiate(spawnee[0], transform.position, transform.rotation);
     }
 
-    private void CheckBoss() {
-        if (bossEnemy == null) {
-            GameFlow.ActivateWinScreen();
-        }
-    }
+//    private void CheckBoss() {
+//        if (bossEnemy == null) {
+//            GameFlow.ActivateWinScreen();
+//        }
+//    }
 }

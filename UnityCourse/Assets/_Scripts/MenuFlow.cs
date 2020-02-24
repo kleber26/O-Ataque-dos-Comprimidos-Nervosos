@@ -3,10 +3,15 @@ using UnityEngine;
 
 public class MenuFlow : MonoBehaviour {
     
+    public GameObject levelLoader;
     public GameObject backgroundMusic;
     private float defaultBackgroundVolue = 0.708f;
     private bool keepFadingIn, keepFadingOut;
     
+    private void Start() {
+        levelLoader.active = true;
+    }
+
     public void FadeOutBackgroudMusic() {
         StartCoroutine(SoundFadeOut(backgroundMusic.GetComponent<AudioSource>(), 0.06f));
     }

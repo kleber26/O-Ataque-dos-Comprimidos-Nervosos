@@ -21,5 +21,4 @@ public class WinScreen : MonoBehaviour {
         load.GameMenu();
         Cursor.lockState = CursorLockMode.Confined;
     }
-    
 }

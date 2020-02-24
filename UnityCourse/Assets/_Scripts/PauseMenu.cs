@@ -11,7 +11,7 @@ public class PauseMenu : MonoBehaviour {
     }
 
     void Update() {
-        if (Input.GetKeyDown(KeyCode.P) && !PlayerHealth.playerDead) {
+        if (Input.GetKeyDown(KeyCode.P) && !PlayerHealth.playerDead && !GameFlow.winScreenActivated) {
             if (gameIsPaused) Resume();
             else Pause();
         }

@@ -6,6 +6,7 @@ public class MainMenu : MonoBehaviour {
 
     public Animator transition;
     public float transitionTime = 1f;
+    public GameObject commandsPopup;
     private MenuFlow eventSystem;
 
     private void Start() {
@@ -25,6 +26,10 @@ public class MainMenu : MonoBehaviour {
     public void QuitGame() {
         Debug.Log("Quitting game. It does not pause the Unity Play.");
         Application.Quit();
+    }
+
+    public void ToggleCommandsPopup() {
+        commandsPopup.active = !commandsPopup.active;
     }
 
     IEnumerator LoadLevel(int levelIndex) {

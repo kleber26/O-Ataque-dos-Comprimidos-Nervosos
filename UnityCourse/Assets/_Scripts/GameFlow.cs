@@ -3,14 +3,20 @@ using UnityEngine;
 
 public class GameFlow : MonoBehaviour {
 
+    public GameObject winScreen; 
     public GameObject restartScreen;
     public GameObject backgroundMusic;
     private AudioLowPassFilter lowFilterMusic;
     private MainMenuInGame load;
     private float defaultBackgroundVolue = 0.613f;
     private bool keepFadingIn, keepFadingOut;
+    private GameObject[] invisibleWalls;
+    public static bool winScreenActivated;
     
     void Start() {
+        winScreenActivated = false;
+        invisibleWalls = GameObject.FindGameObjectsWithTag("InvisibleWalls");
+        StartCoroutine(DisableInvisibleWalls());
         PlayerHealth.playerDead = false;
         lowFilterMusic = backgroundMusic.GetComponent<AudioLowPassFilter>();
         load = GameObject.FindGameObjectWithTag("LevelLoader").GetComponent<MainMenuInGame>();
@@ -19,37 +25,17 @@ public class GameFlow : MonoBehaviour {
     void Update() {
         if (PlayerHealth.playerDead) CallRestartCanvas();
         else ToggleLowFilterMusicBackground(PauseMenu.gameIsPaused);
+
+        WinScreen();
     }
 
-    void CallRestartCanvas() {
-            restartScreen.active = true;
-            lowFilterMusic.enabled = true;
-            Time.timeScale = 0f;
-            if (Input.GetKeyDown(KeyCode.Return)) RestartGame();
-            if (Input.GetKeyDown(KeyCode.Q)) GameMenu();
-    }
-
-    void RestartGame() {
-        PlayerHealth.playerDead = false;
-        Time.timeScale = 1f;
-        restartScreen.active = false;
-        lowFilterMusic.enabled = false;
-        StartCoroutine(SoundFadeOut(backgroundMusic.GetComponent<AudioSource>(), 0.06f));
-        load.PlayGame();
+    public static void ActivateWinScreen() {
+        winScreenActivated = true;
     }
     
-    void GameMenu() {
-        PlayerHealth.playerDead = false;
-        Time.timeScale = 1f;
-        restartScreen.active = false;
-        lowFilterMusic.enabled = false;
-        Cursor.lockState = CursorLockMode.Confined;
-        StartCoroutine(SoundFadeOut(backgroundMusic.GetComponent<AudioSource>(), 0.06f));
-        load.GameMenu();
-    }
-
-    void ToggleLowFilterMusicBackground(bool paused) {
-        lowFilterMusic.enabled = paused;
+    private void WinScreen() {
+        if (winScreenActivated) winScreen.active = true;
+        else winScreen.active = false;
     }
 
     public void FadeOutBackgroudMusic() {
@@ -58,6 +44,38 @@ public class GameFlow : MonoBehaviour {
 
     public void FadeInBackgroudMusic() {
         StartCoroutine(SoundFadeIn(backgroundMusic.GetComponent<AudioSource>(), 0.06f, defaultBackgroundVolue));
+    }
+    
+    void CallRestartCanvas() {
+        restartScreen.active = true;
+        lowFilterMusic.enabled = true;
+        Time.timeScale = 0f;
+        if (Input.GetKeyDown(KeyCode.Return)) RestartGame();
+        if (Input.GetKeyDown(KeyCode.Q)) GameMenu();
+    }
+
+    void RestartGame() {
+        ResetDefaultValuesOnChangeScene();
+        StartCoroutine(SoundFadeOut(backgroundMusic.GetComponent<AudioSource>(), 0.06f));
+        load.PlayGame();
+    }
+    
+    void GameMenu() {
+        ResetDefaultValuesOnChangeScene();
+        Cursor.lockState = CursorLockMode.Confined;
+        StartCoroutine(SoundFadeOut(backgroundMusic.GetComponent<AudioSource>(), 0.06f));
+        load.GameMenu();
+    }
+
+    void ResetDefaultValuesOnChangeScene() {
+        PlayerHealth.playerDead = false;
+        Time.timeScale = 1f;
+        restartScreen.active = false;
+        lowFilterMusic.enabled = false;
+    }
+
+    void ToggleLowFilterMusicBackground(bool paused) {
+        lowFilterMusic.enabled = paused;
     }
     
     private IEnumerator SoundFadeIn(AudioSource audio, float speed, float maxVolume) {
@@ -84,6 +102,13 @@ public class GameFlow : MonoBehaviour {
             currentVolume -= speed;
             audio.volume = currentVolume;
             yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    private IEnumerator DisableInvisibleWalls() {
+        foreach (var invisible in invisibleWalls) {
+            invisible.active = false;
+            yield return null;
         }
     }
 }

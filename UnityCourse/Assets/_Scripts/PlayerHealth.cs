@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UIElements;
+﻿using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour {
 
@@ -24,20 +21,6 @@ public class PlayerHealth : MonoBehaviour {
         CheckHeal();
     }
 
-    public float CurrentHealth() {
-        return health;
-    }
-
-    private void CheckDamage() {
-        if (flashDamage) {
-            myCG.alpha = myCG.alpha - (Time.deltaTime + flashTime);
-            if (myCG.alpha <= 0) {
-                myCG.alpha = 0;
-                flashDamage = false;
-            }
-        }
-    }
-
     public void HealPlayer(float heal) {
         health = heal;
         UpdateHealthBar();
@@ -45,15 +28,9 @@ public class PlayerHealth : MonoBehaviour {
         healCanvasGroup.alpha = 0.7f;
         flashHeal = true;
     }
-
-    private void CheckHeal() {
-        if (flashHeal) {
-            healCanvasGroup.alpha = healCanvasGroup.alpha - (Time.deltaTime + flashTime);
-            if (healCanvasGroup.alpha <= 0) {
-                healCanvasGroup.alpha = 0;
-                flashHeal = false;
-            }
-        }
+    
+    public float CurrentHealth() {
+        return health;
     }
 
     public void FlashDamage () {
@@ -68,6 +45,26 @@ public class PlayerHealth : MonoBehaviour {
         
         if (health <= 0f) Die();
         else FlashDamage();
+    }
+    
+    private void CheckDamage() {
+        if (flashDamage) {
+            myCG.alpha = myCG.alpha - (Time.deltaTime + flashTime);
+            if (myCG.alpha <= 0) {
+                myCG.alpha = 0;
+                flashDamage = false;
+            }
+        }
+    }
+
+    private void CheckHeal() {
+        if (flashHeal) {
+            healCanvasGroup.alpha = healCanvasGroup.alpha - (Time.deltaTime + flashTime);
+            if (healCanvasGroup.alpha <= 0) {
+                healCanvasGroup.alpha = 0;
+                flashHeal = false;
+            }
+        }
     }
 
     void Die() {

@@ -26,8 +26,11 @@
           <e p="Gun.cs" t="Include" />
           <e p="KillCounter.cs" t="Include" />
           <e p="MainMenu.cs" t="Include" />
+          <e p="MainMenuInGame.cs" t="Include" />
           <e p="MedicKit.cs" t="Include" />
+          <e p="MenuFlow.cs" t="Include" />
           <e p="MouseLook.cs" t="Include" />
+          <e p="MoveSounds.cs" t="Include" />
           <e p="OpenSmallDoorUp.cs" t="Include" />
           <e p="PauseMenu.cs" t="Include" />
           <e p="PlayerHealth.cs" t="Include" />
@@ -176,9 +179,6 @@
             </e>
           </e>
         </e>
-        <e p="MainMenuInGame.cs" t="Include" />
-        <e p="MenuFlow.cs" t="Include" />
-        <e p="MoveSounds.cs" t="Include" />
         <e p="TextMesh Pro" t="Include">
           <e p="Examples &amp; Extras" t="Include">
             <e p="Fonts" t="Include">

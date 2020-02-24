@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Media;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BouncyPlatform : MonoBehaviour {
+    
     public Rigidbody rigidPlayer;
     public Transform platform;
     public float speed = 5f;

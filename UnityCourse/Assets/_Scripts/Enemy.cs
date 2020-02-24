@@ -46,13 +46,13 @@ public class Enemy : MonoBehaviour {
         
         if (health <= 0f) {
             IncreaseKillCounter();
-            Die();
+            Die(true);
         }
     }
 
-    private void Die() {
+    private void Die(bool killedByPlayeer) {
         SpecialGhostsKilled special = gameObject.GetComponent<SpecialGhostsKilled>();
-        if (special != null) special.UpdateSpecialGhostsScore();
+        if (special != null && killedByPlayeer) special.UpdateSpecialGhostsScore();
 
         Instantiate(explosionEffect, gameObject.transform.position, transform.rotation);        
         Destroy(gameObject, 0.1f);
@@ -104,7 +104,7 @@ public class Enemy : MonoBehaviour {
             player.TakeDamage(explosionDamage);
 
             IncreaseExplosionsCounter();
-            if (!boss) Die();
+            if (!boss) Die(false);
         }
     }
 }

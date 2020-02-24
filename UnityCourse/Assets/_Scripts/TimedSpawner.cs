@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class TimedSpawner : MonoBehaviour {
 
-    public GameObject winScreen;
-    
     public List<GameObject> spawnee;
     public bool stopSpawning;
     public float spawnTime;
@@ -16,7 +14,6 @@ public class TimedSpawner : MonoBehaviour {
     private bool readyToShowFinalScreen;
     private GameObject bossTrig;
     private bool bossAlreeadyActivated;
-    // Start is called before the first frame update
 
     private void Update() {
         trig = GameObject.FindGameObjectWithTag("bosstrig");
@@ -53,7 +50,7 @@ public class TimedSpawner : MonoBehaviour {
 
     private void CheckBoss() {
         if (bossEnemy == null) {
-            winScreen.active = true;
+            GameFlow.ActivateWinScreen();
         }
     }
 }

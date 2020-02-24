@@ -2,6 +2,7 @@
 using UnityEngine.AI;
 
 public class AIMovement : MonoBehaviour {
+    
     public NavMeshAgent agent;
     private GameObject player;
 

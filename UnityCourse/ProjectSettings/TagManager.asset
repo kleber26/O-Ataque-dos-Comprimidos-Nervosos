@@ -19,6 +19,7 @@ TagManager:
   - JorgeField
   - LevelLoader
   - EventSystem
+  - InvisibleWalls
   layers:
   - Default
   - TransparentFX
@@ -31,8 +32,8 @@ TagManager:
   - PostProcessing
   - Ground
   - PostProcessingLayer
-  - 
-  - 
+  - Player
+  - Invisible Wall
   - 
   - 
   - 

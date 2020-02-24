@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 
 public class Gun : MonoBehaviour {
 
@@ -14,17 +13,10 @@ public class Gun : MonoBehaviour {
     
     private GameObject flash;
     public ParticleSystem impact;
-
-
     private float nextTimetoFire = 0f;
 
     void Awake() {
-//        AudioListener.pause = true;
         flash = GameObject.FindGameObjectWithTag("Flash");
-    }
-
-    private void Start() {
-//        AudioListener.pause = false;
     }
 
     void Update() {
@@ -58,7 +50,7 @@ public class Gun : MonoBehaviour {
             }
 
             ParticleSystem go = Instantiate(impact, hit.point, Quaternion.LookRotation(hit.normal));
-            Destroy(go, 1f);
+            Destroy(go, 2f);
         }
     }
 

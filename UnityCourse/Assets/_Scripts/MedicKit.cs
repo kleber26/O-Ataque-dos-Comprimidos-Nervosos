@@ -11,11 +11,15 @@ public class MedicKit : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider other) { 
+        Physics.IgnoreCollision(other.GetComponent<Collider>(), GetComponent<Collider>());
         if (playerHealth.CurrentHealth() == 100f) return;
-        
         if (other.CompareTag("Player")) {
             playerHealth.HealPlayer(100f);
             Destroy(gameObject);
         }
+    }
+    
+    private void OnTriggerExit(Collider other) {
+        Physics.IgnoreCollision(other.GetComponent<Collider>(), GetComponent<Collider>(), false);
     }
 }

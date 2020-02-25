@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour {
     
 //  # General
     public bool boss;
+    public bool special;
     public float health = 100f;
     public RectTransform healthBar;
     public float explosionDamage = 20f;
@@ -57,7 +58,7 @@ public class Enemy : MonoBehaviour {
         }
     }
 
-    private void Die(bool killedByPlayeer) {
+    public void Die(bool killedByPlayeer) {
         SpecialGhostsKilled special = gameObject.GetComponent<SpecialGhostsKilled>();
         if (special != null && killedByPlayeer) special.UpdateSpecialGhostsScore();
 

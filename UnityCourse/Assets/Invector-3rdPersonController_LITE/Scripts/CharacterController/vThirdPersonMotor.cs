@@ -84,6 +84,9 @@ namespace Invector.vCharacterController
         internal bool isSprinting { get; set; }
         public bool stopMove { get; protected set; }
 
+        public static bool playerIsGrounded;
+        public static bool playerIsJumping;
+        
         internal float inputMagnitude;                      // sets the inputMagnitude to update the animations in the animator controller
         internal float verticalSpeed;                       // set the verticalSpeed based on the verticalInput
         internal float horizontalSpeed;                     // set the horizontalSpeed based on the horizontalInput       
@@ -143,6 +146,11 @@ namespace Invector.vCharacterController
             colliderHeight = GetComponent<CapsuleCollider>().height;
 
             isGrounded = true;
+        }
+
+        void Update() {
+            playerIsGrounded = isGrounded;
+            playerIsJumping = isJumping;
         }
 
         public virtual void UpdateMotor()
@@ -293,8 +301,7 @@ namespace Invector.vCharacterController
             CheckGroundDistance();
             ControlMaterialPhysics();
 
-            if (groundDistance <= groundMinDistance)
-            {
+            if (groundDistance <= groundMinDistance) {
                 isGrounded = true;
                 if (!isJumping && groundDistance > 0.05f)
                     _rigidbody.AddForce(transform.up * (extraGravity * 2 * Time.deltaTime), ForceMode.VelocityChange);

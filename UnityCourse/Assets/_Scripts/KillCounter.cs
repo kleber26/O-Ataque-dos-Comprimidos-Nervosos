@@ -4,6 +4,7 @@ using UnityEngine;
 public class KillCounter : MonoBehaviour {
     
     public TextMeshProUGUI killCounter;
+    public TextMeshProUGUI killCounterBlack;
     private string starterKillCount = "0";
     public TextMeshProUGUI explodedGhosts;
     private string starterHealth = "0";
@@ -11,8 +12,9 @@ public class KillCounter : MonoBehaviour {
     public AudioSource enemyExplosionSound;
     public AudioSource enemyDeathSound;
 
-    void Update() {
+    void Update() {            
         if (!killCounter.text.Equals(starterKillCount)) {
+            killCounterBlack.text = "<color=black>" + killCounter.text;
             starterKillCount = killCounter.text;
             EnemyDeathSound();
         }

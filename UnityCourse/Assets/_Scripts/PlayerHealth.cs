@@ -16,7 +16,6 @@ public class PlayerHealth : MonoBehaviour {
     private float flashTime = 0.05f;
     
     void Update () {
-        if (winScreen.active) health = 100f;
         CheckDamage();
         CheckHeal();
     }

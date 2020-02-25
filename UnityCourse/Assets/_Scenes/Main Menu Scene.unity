@@ -3041,6 +3041,11 @@ PrefabInstance:
       propertyPath: commandsPopup
       value: 
       objectReference: {fileID: 1125499231}
+    - target: {fileID: 7554510509826920746, guid: 83f9bedf914f34f808042c1cb02af7c3,
+        type: 3}
+      propertyPath: transitionTime
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7554510509826920747, guid: 83f9bedf914f34f808042c1cb02af7c3,
         type: 3}
       propertyPath: m_LocalPosition.x

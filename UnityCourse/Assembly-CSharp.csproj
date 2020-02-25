@@ -83,6 +83,7 @@
     <Compile Include="Assets\_Scripts\SpecialGhostsKilled.cs" />
     <Compile Include="Assets\_Scripts\Target.cs" />
     <Compile Include="Assets\_Scripts\TimedSpawner.cs" />
+    <Compile Include="Assets\_Scripts\Timer.cs" />
     <Compile Include="Assets\_Scripts\WinScreen.cs" />
     <Compile Include="Assets\AssetStoreOriginals\_SNAPS_PrototypingAssets\About\Scripts\Readme.cs" />
     <Compile Include="Assets\Idle MoCap\DemoScene\idle_mocap_follow_player.cs" />

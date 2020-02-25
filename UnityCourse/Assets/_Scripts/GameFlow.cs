@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class GameFlow : MonoBehaviour {
 
+    public Timer timer;
     public GameObject winScreen; 
     public GameObject restartScreen;
     public GameObject backgroundMusic;
@@ -13,11 +14,12 @@ public class GameFlow : MonoBehaviour {
     private AudioManager audioManager;
     private AudioLowPassFilter lowFilterMusic;
     private MainMenuInGame load;
-    private float defaultBackgroundVolue = 0.613f;
+    private float defaultBackgroundVolume = 0.613f;
     private bool keepFadingIn, keepFadingOut;
     private GameObject[] invisibleWalls;
     
     void Start() {
+        Timer.stopTimer = false;
         winScreenActivated = false;
         audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
         invisibleWalls = GameObject.FindGameObjectsWithTag("InvisibleWalls");
@@ -30,7 +32,6 @@ public class GameFlow : MonoBehaviour {
     
     void Update() {
         if (PlayerHealth.playerDead) CallRestartCanvas();
-//        else ToggleLowFilterMusicBackground(PauseMenu.gameIsPaused);
     }
 
     public static void ToggleWinScreen() {
@@ -38,10 +39,9 @@ public class GameFlow : MonoBehaviour {
     }
     
     public void CallWinScreen() {
+        Timer.stopTimer = true;
         StartCoroutine(KillBossEffect());
         ToggleWinScreen();
-//        if (winScreenActivated) winScreen.active = true;
-//        else winScreen.active = false;
     }
 
     public void FadeOutBackgroudMusic() {
@@ -49,10 +49,11 @@ public class GameFlow : MonoBehaviour {
     }
 
     public void FadeInBackgroudMusic() {
-        StartCoroutine(SoundFadeIn(backgroundMusic.GetComponent<AudioSource>(), 0.06f, defaultBackgroundVolue));
+        StartCoroutine(SoundFadeIn(backgroundMusic.GetComponent<AudioSource>(), 0.06f, defaultBackgroundVolume));
     }
     
     void CallRestartCanvas() {
+        Timer.stopTimer = true;
         restartScreen.active = true;
         lowFilterMusic.enabled = true;
         Time.timeScale = 0f;

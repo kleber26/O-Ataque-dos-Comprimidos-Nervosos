@@ -2,47 +2,50 @@ using TMPro;
 using UnityEngine;
 
 public class SpecialGhostsKilled : MonoBehaviour{
-        
+    
     public TextMeshProUGUI name;
     private string enemyName;
-    private TextMeshProUGUI jorgeField;
-    private TextMeshProUGUI brazukaField;
-    private TextMeshProUGUI zoioField;
-    private TextMeshProUGUI quemField;
+    private GameObject[] jorgeField;
+    private GameObject[] brazukaField;
+    private GameObject[] zoioField;
+    private GameObject[] quemField;
     private int currentKills;
     
     private void Start() {
         enemyName = name.text + ":";
         enemyName = enemyName.Substring(0, enemyName.IndexOf(":")).ToLower();
         
-        jorgeField = GameObject.FindGameObjectWithTag("JorgeField").GetComponent<TextMeshProUGUI>();
-        brazukaField = GameObject.FindGameObjectWithTag("BrazukaField").GetComponent<TextMeshProUGUI>();
-        zoioField = GameObject.FindGameObjectWithTag("ZoioField").GetComponent<TextMeshProUGUI>();
-        quemField = GameObject.FindGameObjectWithTag("???Field").GetComponent<TextMeshProUGUI>();
+        jorgeField = GameObject.FindGameObjectsWithTag("JorgeField");
+        brazukaField = GameObject.FindGameObjectsWithTag("BrazukaField");
+        zoioField = GameObject.FindGameObjectsWithTag("ZoioField");
+        quemField = GameObject.FindGameObjectsWithTag("???Field");
     }
 
     public void UpdateSpecialGhostsScore() {
         switch (enemyName) {
             case "jorge":
-                currentKills = int.Parse(jorgeField.text.Substring(0, 1));
-                jorgeField.text = (currentKills + 1) + "/1";
-                jorgeField.color = Color.green;
+                UpdateValues(jorgeField[0], false);
+                UpdateValues(jorgeField[1], true);
                 break;
             case "brazuka":
-                currentKills = int.Parse(brazukaField.text.Substring(0, 1));
-                brazukaField.text = (currentKills + 1) + "/1";
-                brazukaField.color = Color.green;
+                UpdateValues(brazukaField[0], false);
+                UpdateValues(brazukaField[1], true);
                 break;
             case "zoio":
-                currentKills = int.Parse(zoioField.text.Substring(0, 1));
-                zoioField.text = (currentKills + 1) + "/1";
-                zoioField.color = Color.green;
+                UpdateValues(zoioField[0], false);
+                UpdateValues(zoioField[1], true);
                 break;
             case "???":
-                currentKills = int.Parse(quemField.text.Substring(0, 1));
-                quemField.text = (currentKills + 1) + "/1";
-                quemField.color = Color.green;
+                UpdateValues(quemField[0], false);
+                UpdateValues(quemField[1], true);
                 break; 
         }
+    }
+
+    private void UpdateValues(GameObject enemy, bool changeColor) {
+        TextMeshProUGUI text = enemy.GetComponent<TextMeshProUGUI>();
+        currentKills = int.Parse(text.text.Substring(0, 1));
+        text.text = (currentKills + 1) + "/1";
+        if (changeColor) text.color = Color.green;
     }
 }

@@ -21,6 +21,9 @@ TagManager:
   - EventSystem
   - InvisibleWalls
   - AudioManager
+  - Exit
+  - Gun
+  - SuperShotEffect
   layers:
   - Default
   - TransparentFX

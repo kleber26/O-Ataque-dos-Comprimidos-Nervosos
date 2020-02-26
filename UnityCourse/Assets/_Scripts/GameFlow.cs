@@ -89,6 +89,13 @@ public class GameFlow : MonoBehaviour {
         StartCoroutine(cameraShake.Shake(duration, magnitude));
     }
 
+    public void CallSlowMotion(float time) {
+        if (Enemy.focusSlowMotionOnBoss) {
+            return;
+        }
+        StartCoroutine(SlowMotion(time));
+    }
+
     private IEnumerator SoundFadeIn(AudioSource audio, float speed, float maxVolume) {
         keepFadingIn = true;
         keepFadingOut = false;
@@ -135,5 +142,15 @@ public class GameFlow : MonoBehaviour {
         Time.timeScale = 1f;
         winScreen.active = true;
         audioManager.PlayExplosionSound(3);
+    }
+
+    private IEnumerator SlowMotion(float time) {
+        audioManager.ToggleAudioEchoFilter();
+        Time.timeScale = 0.25f;
+        lowFilterMusic.enabled = true;
+        yield return new WaitForSeconds(time);
+        audioManager.ToggleAudioEchoFilter();
+        lowFilterMusic.enabled = false;
+        Time.timeScale = 1f;
     }
 }

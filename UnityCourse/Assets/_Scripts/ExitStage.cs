@@ -22,11 +22,13 @@ public class ExitStage : MonoBehaviour {
         bool quemKilleds     = int.Parse(quem.text.Substring(0, 1))       >= 1;
         
         if (currentPanels && jorgeKilleds && brazukaKilleds && zoioKilleds && quemKilleds) {
-            if (gate.active) {
-                gate.active = false;
-                glowRED.active = false;
-                glowBLUE.active = true;
-            }
+            if (gate.active) ToggleGate();
         }
+    }
+
+    public void ToggleGate() {
+        gate.active = !gate.active;
+        glowRED.active = !glowRED.active;
+        glowBLUE.active = !glowBLUE.active;
     }
 }

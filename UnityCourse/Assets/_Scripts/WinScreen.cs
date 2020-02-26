@@ -15,10 +15,12 @@ public class WinScreen : MonoBehaviour {
 
     void RestartGame() {
         load.PlayGame();
+        Enemy.focusSlowMotionOnBoss = false;
     }
     
     void GameMenu() {
         load.GameMenu();
         Cursor.lockState = CursorLockMode.Confined;
+        Enemy.focusSlowMotionOnBoss = false;
     }
 }

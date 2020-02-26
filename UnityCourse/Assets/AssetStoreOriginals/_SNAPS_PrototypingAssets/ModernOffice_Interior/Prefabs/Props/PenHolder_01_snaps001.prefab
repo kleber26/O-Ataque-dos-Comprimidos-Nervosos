@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 33097238224656568}
   - component: {fileID: 23991228439024822}
   - component: {fileID: 6842679451918712927}
+  - component: {fileID: 2385937651868793759}
+  - component: {fileID: 7666260726709403980}
   m_Layer: 0
   m_Name: PenHolder_01_snaps001
   m_TagString: Untagged
@@ -58,9 +60,9 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8621dfcb3dbf229428e45425021e0875, type: 2}
-  - {fileID: 2100000, guid: 15cb6b096bb78c7479c93c6e26153387, type: 2}
-  - {fileID: 2100000, guid: ae2efeea9c901af48b6bb19d9981d5d2, type: 2}
+  - {fileID: 2100000, guid: ef16623cb13a34d0b98e644fb04cd38b, type: 2}
+  - {fileID: 2100000, guid: 6c10646abbb3641a1b604b6822c4f612, type: 2}
+  - {fileID: 2100000, guid: beb68c289fe9148c08e352c142c20cf3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -68,6 +70,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -89,8 +92,38 @@ MeshCollider:
   m_GameObject: {fileID: 1746666649657486}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 12876f32a9582bc42b01e2801126c4bc, type: 2}
+--- !u!136 &2385937651868793759
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746666649657486}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.059999995
+  m_Height: 0.21875
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.109375, z: 0}
+--- !u!54 &7666260726709403980
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746666649657486}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

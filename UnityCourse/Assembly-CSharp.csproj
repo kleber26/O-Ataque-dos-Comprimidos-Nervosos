@@ -64,6 +64,7 @@
     <Compile Include="Assets\_Scripts\Billboard.cs" />
     <Compile Include="Assets\_Scripts\BouncyPlatform.cs" />
     <Compile Include="Assets\_Scripts\CameraShake.cs" />
+    <Compile Include="Assets\_Scripts\Cheats.cs" />
     <Compile Include="Assets\_Scripts\Collectable.cs" />
     <Compile Include="Assets\_Scripts\Enemy.cs" />
     <Compile Include="Assets\_Scripts\ExitStage.cs" />
@@ -80,7 +81,9 @@
     <Compile Include="Assets\_Scripts\PauseMenu.cs" />
     <Compile Include="Assets\_Scripts\PlayerHealth.cs" />
     <Compile Include="Assets\_Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\_Scripts\PushPlayerOff.cs" />
     <Compile Include="Assets\_Scripts\SpecialGhostsKilled.cs" />
+    <Compile Include="Assets\_Scripts\SuperShot.cs" />
     <Compile Include="Assets\_Scripts\Target.cs" />
     <Compile Include="Assets\_Scripts\TimedSpawner.cs" />
     <Compile Include="Assets\_Scripts\Timer.cs" />

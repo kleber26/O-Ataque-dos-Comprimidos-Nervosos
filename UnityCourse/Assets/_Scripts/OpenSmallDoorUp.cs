@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class OpenSmallDoorUp : MonoBehaviour {
 
@@ -8,6 +9,8 @@ public class OpenSmallDoorUp : MonoBehaviour {
     public GameObject bossTrig;
     
     private void OnTriggerEnter(Collider other) {
+        if (!other.CompareTag("Player")) return;
+        
         door.transform.position += new Vector3(-x, -y, -z) * Time.deltaTime;
         if (openBoss) {
             if (!bossTrig.active) {
@@ -17,6 +20,8 @@ public class OpenSmallDoorUp : MonoBehaviour {
     }
     
     private void OnTriggerExit(Collider other) {
+        if (!other.CompareTag("Player")) return;
+        
         door.transform.position += new Vector3(x, y, z) * Time.deltaTime;
     }
 }

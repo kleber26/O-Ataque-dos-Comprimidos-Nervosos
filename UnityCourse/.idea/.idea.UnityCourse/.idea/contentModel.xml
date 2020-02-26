@@ -21,6 +21,7 @@
           <e p="Billboard.cs" t="Include" />
           <e p="BouncyPlatform.cs" t="Include" />
           <e p="CameraShake.cs" t="Include" />
+          <e p="Cheats.cs" t="Include" />
           <e p="Collectable.cs" t="Include" />
           <e p="Enemy.cs" t="Include" />
           <e p="ExitStage.cs" t="Include" />
@@ -37,7 +38,9 @@
           <e p="PauseMenu.cs" t="Include" />
           <e p="PlayerHealth.cs" t="Include" />
           <e p="PlayerMovement.cs" t="Include" />
+          <e p="PushPlayerOff.cs" t="Include" />
           <e p="SpecialGhostsKilled.cs" t="Include" />
+          <e p="SuperShot.cs" t="Include" />
           <e p="Target.cs" t="Include" />
           <e p="TimedSpawner.cs" t="Include" />
           <e p="Timer.cs" t="Include" />

@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour {
     public GameObject winScreen;
     public AudioSource healSound;
     public static bool playerDead;
+    public static bool immortal;
     
     private float health = 100f;
     private bool flashDamage, flashHeal;
@@ -38,6 +39,8 @@ public class PlayerHealth : MonoBehaviour {
     }
     
     public void TakeDamage(float amount) {
+        if (immortal) return;
+        
         if (!PlayerDamageSound.isPlaying) PlayerDamageSound.Play();
         health -= amount;
         UpdateHealthBar();
@@ -67,6 +70,7 @@ public class PlayerHealth : MonoBehaviour {
     }
 
     void Die() {
+        Gun.superShot = false;
         PlayerDeathSound.gameObject.active = true;
         PlayerDeathSound.Play();
         playerDead = true;

@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour {
     
 // # GameFlow - Kill boss
     private GameFlow eventSystem;
+    public static bool focusSlowMotionOnBoss;
    
     private void Start() {
         audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
@@ -63,6 +64,7 @@ public class Enemy : MonoBehaviour {
         if (special != null && killedByPlayeer) special.UpdateSpecialGhostsScore();
 
         if (boss) {
+            focusSlowMotionOnBoss = true;
             eventSystem.CallWinScreen();
             StartCoroutine(BossExplosionEffect());
         } else {

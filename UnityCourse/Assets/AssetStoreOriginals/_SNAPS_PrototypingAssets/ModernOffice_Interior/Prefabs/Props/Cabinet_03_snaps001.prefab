@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 33633370734024304}
   - component: {fileID: 23249258778706810}
   - component: {fileID: 8361060100712790986}
+  - component: {fileID: 1746268713567412916}
+  - component: {fileID: 536063286070879197}
   m_Layer: 0
   m_Name: Cabinet_03_snaps001
   m_TagString: Untagged
@@ -58,8 +60,8 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8621dfcb3dbf229428e45425021e0875, type: 2}
-  - {fileID: 2100000, guid: 15cb6b096bb78c7479c93c6e26153387, type: 2}
+  - {fileID: 2100000, guid: c5f98663a2c334e53a29a23a3be24439, type: 2}
+  - {fileID: 2100000, guid: 3d2110dabe6f73043ba4404830e26f36, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -67,6 +69,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -88,8 +91,37 @@ MeshCollider:
   m_GameObject: {fileID: 1054516531068854}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 94d24dcd7a8b5c14086fd8d57164decf, type: 2}
+--- !u!54 &1746268713567412916
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054516531068854}
+  serializedVersion: 2
+  m_Mass: 3
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &536063286070879197
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054516531068854}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.73437524, y: 0.84375, z: 1.5000002}
+  m_Center: {x: -3.0273561e-12, y: 0.328125, z: 0.00781247}
